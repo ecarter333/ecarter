@@ -20,13 +20,13 @@ write.csv(head(data, 50), "sample.csv", row.names = FALSE)
 
 library(tidyverse)
 library(leaflet)
-library(sf)
+
 library(jsonlite)
 library(htmlwidgets)
 library(scales)
 
 
-library(sf)
+
 
 
 # Check what we got
@@ -44,13 +44,7 @@ eds_1910 <- eds_1910 |>
 # Load both layers
 eds_1910 <- st_read("portland_eds_1910.geojson")
 neighborhoods <- st_read("Neighborhoods_(regions).geojson")  # ← replace with actual filename
-eds_1910 <- eds_1910 |>
-  filter(ed_num != 43)
 
-# Verify it's gone
-eds_1910 |> 
-  st_drop_geometry() |>
-  filter(ed_num < 124 | ed_num > 327)
 # Check neighborhood fields
 names(neighborhoods)
 
